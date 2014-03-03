@@ -1,0 +1,27 @@
+<form method="POST" action="">
+	<select name="tipo" onchange="this.form.submit();">
+		<option value="1" <?php if($this->tipo == '1'){ ?>selected="selected"<?php } ?>> Todos</option>
+		<option value="estandar" <?php if($this->tipo == 'estandar'){ ?>selected="selected"<?php } ?>> Estandar</option>
+		<option value="amedida" <?php if($this->tipo == 'amedida'){ ?>selected="selected"<?php } ?>> A Medida</option>
+	</select>
+</form>
+<div>
+	<table cellpadding="5" cellspacing="0" border="0">
+		<tr>
+			<th>Id</th>
+			<th>Nombre</th>
+			<th>Descripcion</th>
+			<th>Tipo</th>
+			<th>Stock</th>
+		</tr>
+		<?php foreach($this->listado as $mueble){ ?>
+		<tr>
+			<td><?php echo $mueble['id']; ?></td>
+			<td><?php echo $mueble['nombre']; ?></td>
+			<td><?php echo $mueble['descripcion']; ?></td>
+			<td><?php echo $mueble['tipo'] == 'estandar' ? 'Estandar' : 'A Medida'; ?></td>
+			<td><?php echo $mueble['stock']; ?></td>
+		</tr>
+		<?php } ?>
+	</table>
+</div>

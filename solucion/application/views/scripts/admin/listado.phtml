@@ -1,0 +1,30 @@
+<div>
+	<a href="/admin/logout">Cerrar sesion</a>
+	<a href="/admin/alta">Alta productos</a>
+</div>
+<div>
+	<table cellpadding="5" cellspacing="0" border="0">
+		<tr>
+			<th>Id</th>
+			<th>Nombre</th>
+			<th>Descripcion</th>
+			<th>Tipo</th>
+			<th>Stock</th>
+			<th>Estado</th>
+			<th>&nbsp;</th>
+			<th>&nbsp;</th>
+		</tr>
+		<?php foreach($this->listado as $mueble){ ?>
+		<tr>
+			<td><?php echo $mueble['id']; ?></td>
+			<td><?php echo $mueble['nombre']; ?></td>
+			<td><?php echo $mueble['descripcion']; ?></td>
+			<td><?php echo $mueble['tipo'] == 'estandar' ? 'Estandar' : 'A Medida'; ?></td>
+			<td><?php echo $mueble['stock']; ?></td>
+			<td><?php echo $mueble['estado']; ?></td>
+			<td><a href="/admin/edit/id/<?php echo $mueble['id']; ?>">Editar</a></td>
+			<td><a href="/admin/delete/id/<?php echo $mueble['id']; ?>">Eliminar</a></td>
+		</tr>
+		<?php } ?>
+	</table>
+</div>
